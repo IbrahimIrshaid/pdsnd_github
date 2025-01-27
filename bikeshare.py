@@ -5,7 +5,9 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york': 'new_york_city.csv',
               'washington': 'washington.csv' }
+
 months = ['january', 'february', 'march', 'april', 'may', 'june']
+
 def get_filters():
    
     print('Hello! Let\'s explore some US bikeshare data!')
@@ -39,6 +41,7 @@ def get_filters():
             print("Invalid input. Please try again.")
 
     # TO DO: get user input for month (all, january, february, ... , june)
+    
     print("Enter a day to filter data or enter all")
     while True:
         temp = str(input("Sunday, Monday,...., Saturday, all")).lower()
@@ -78,12 +81,15 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
+   
     print("The Most Common Month is: " + months[df['month'].value_counts().idxmax()-1])                        
 
     # TO DO: display the most common day of week
+   
     print("The Most Common Day of the Week is: "+ df['day'].value_counts().idxmax())
 
     # TO DO: display the most common start hour
+    
     df['hour'] = df['Start Time'].dt.hour
     print("The Most Common Hour is: " + str(df['hour'].value_counts().idxmax()))                             
 
@@ -96,13 +102,17 @@ def station_stats(df):
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
+    
     # TO DO: display most commonly used start station
+    
     print("Most Commonly Used Start Stations is: " + df['Start Station'].value_counts().idxmax())
 
     # TO DO: display most commonly used end station
+   
     print("Most Commonly Used End Stations is: " + df['End Station'].value_counts().idxmax())
 
     # TO DO: display most frequent combination of start station and end station trip
+   
     df['trip'] = df['Start Station'] + " to " + df['End Station']
     print("Most Common Combination of Start Station and End Station Trip is: " +             df['trip'].value_counts().idxmax())
 
@@ -118,10 +128,13 @@ def trip_duration_stats(df):
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['End Time'] = pd.to_datetime(df['End Time'])                               
     df['travel time'] = df['End Time'] - df['Start Time']
+    
     # TO DO: display total travel time
+    
     print("Total Travel Time is: " + str(df['travel time'].sum()))
 
     # TO DO: display mean travel time
+    
     print("The Mean Travel Time is: " + str(df['travel time'].mean()))
 
 
@@ -139,9 +152,11 @@ def user_stats(df):
     start_time = time.time()
     
     # TO DO: Display counts of user types
+   
     print(df['User Type'].value_counts())   
 
     # TO DO: Display counts of gender
+   
     print(df['Gender'].value_counts())    
 
     # TO DO: Display earliest, most recent, and most common year of birth
@@ -155,6 +170,7 @@ def user_stats(df):
 def display_data(df):
         count1 = 0
         count2 = 5
+
         while count1 < len(df):
             choice = input("Would You like to See 5 Trips Data? (Answer should be either yes or no)").lower()
             if choice == "yes":
@@ -165,7 +181,7 @@ def display_data(df):
             elif choice == "no":
                 break
             else:
-                print("invalid input please try again")
+                print("invalid input please try again!")
 def main():
    
     while True:
