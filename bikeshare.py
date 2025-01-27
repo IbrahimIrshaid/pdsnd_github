@@ -170,6 +170,7 @@ def user_stats(df):
 def display_data(df):
         count1 = 0
         count2 = 5
+
         while count1 < len(df):
             choice = input("Would You like to See 5 Trips Data? (Answer should be either yes or no)").lower()
             if choice == "yes":
@@ -180,7 +181,7 @@ def display_data(df):
             elif choice == "no":
                 break
             else:
-                print("invalid input please try again")
+                print("invalid input please try again!")
 def main():
    
     while True:
